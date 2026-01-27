@@ -1,1 +1,19 @@
-<p>employee-list works!</p>
+<h1> Employee List</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> First Name</th>
+      <th> Last Name</th>
+      <th> Email</th>
+      <th> Job Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngForOf = "let employee of employees">
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.jobTitle }}</td>
+    </tr>
+  </tbody>
+</table>
