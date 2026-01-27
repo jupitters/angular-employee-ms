@@ -3,5 +3,5 @@ export class Employee {
   firstName: string;
   lastName: string;
   email: string;
-  function: string;
+  jobTitle: string;
 }
