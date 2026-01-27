@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Employee} from '../employee';
 import {NgForOf} from '@angular/common';
 
@@ -10,6 +10,15 @@ import {NgForOf} from '@angular/common';
   templateUrl: './employee-list.html',
   styleUrl: './employee-list.css',
 })
-export class EmployeeList {
+export class EmployeeList implements OnInit{
   employees: Employee[] | undefined;
+
+  constructor(){}
+
+  ngOnInit(): void{
+    this.employees = [
+      {"id": 1, "firstName": "Ana", "lastName": "Dev", "email": "ana@dev.com", "jobTitle": "Dev"},
+      {"id": 2, "firstName": "Bruno", "lastName": "Marketing", "email": "bruno@marketing.com", "jobTitle": "Marketing"}
+    ];
+  }
 }
