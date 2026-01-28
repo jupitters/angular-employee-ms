@@ -24,9 +24,9 @@ export class CreateEmployee {
     }, error => console.log(error));
   }
 
-  goToEmployeeList(){
-    this.router.navigate(['/employees']);
-  }
+  // goToEmployeeList(){
+  //   this.router.navigate(['/employees']);
+  // }
 
   onSubmit(){
     console.log(this.employee);
