@@ -5,6 +5,7 @@ import com.jupitters.employee_ms.model.Employee;
 import com.jupitters.employee_ms.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +26,8 @@ public class EmployeeController {
         return employeeRepository.save(employee);
     }
 
-    public Employee getEmployeeById(@PathVariable Long id){
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id){
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found!"))
-        return employee;
+        return ResponseEntity.ok(employee);
     }
 }
