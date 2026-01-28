@@ -1,5 +1,6 @@
 package com.jupitters.employee_ms.controller;
 
+import com.jupitters.employee_ms.exception.ResourceNotFoundException;
 import com.jupitters.employee_ms.model.Employee;
 import com.jupitters.employee_ms.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,10 @@ public class EmployeeController {
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeRepository.save(employee);
+    }
+
+    public Employee getEmployeeById(@PathVariable Long id){
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found!"))
+        return employee;
     }
 }
