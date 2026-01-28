@@ -10,5 +10,5 @@ import {BrowserModule} from '@angular/platform-browser';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-frontend');
+  protected readonly title = signal('Employee Managemente With Angular');
 }
