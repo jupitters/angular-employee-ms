@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Employee} from '../employee';
 import {FormsModule} from '@angular/forms';
 import {EmployeeService} from '../employee.service';
+import {Router} from 'express';
 
 @Component({
   selector: 'app-create-employee',
@@ -14,13 +15,17 @@ import {EmployeeService} from '../employee.service';
 export class CreateEmployee {
   employee: Employee = new Employee();
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private router: Router) {
   }
 
   saveEmployee(){
     this.employeeService.createEmployee(this.employee).subscribe(data => {
       console.log(data);
     }, error => console.log(error));
+  }
+
+  goToEmployeeList(){
+    this.router.navigate(['/employees']);
   }
 
   onSubmit(){
