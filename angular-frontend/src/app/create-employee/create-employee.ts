@@ -17,6 +17,6 @@ export class CreateEmployee {
   }
 
   onSubmit(){
-
+    console.log(this.employee);
   }
 }
