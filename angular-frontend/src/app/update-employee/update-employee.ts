@@ -29,8 +29,8 @@ export class UpdateEmployee implements OnInit{
 
     onSubmit(){
       this.employeeService.updateEmployee(this.id, this.employee).subscribe(data =>{
-
-      })
+        this.goToEmployeeList();
+      }, error => console.log(error));
     }
 
     goToEmployeeList(){
