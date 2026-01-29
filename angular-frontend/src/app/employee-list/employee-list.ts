@@ -32,6 +32,8 @@ export class EmployeeList implements OnInit{
   }
 
   deleteEmployee(id: number){
-
+    this.employeeService.deleteEmployee(id).subscribe(data => {
+      this.getEmployees();
+    })
   }
 }
