@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {EmployeeService} from '../employee.service';
 import {Employee} from '../employee';
-import {ActivateRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-update-employee',
@@ -17,7 +17,7 @@ export class UpdateEmployee implements OnInit{
 
     id: number;
     employee: Employee = new Employee();
-    constructor(private employeeService: EmployeeService, private route: ActivateRoute) {
+    constructor(private employeeService: EmployeeService, private route: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit(): void{
@@ -28,6 +28,12 @@ export class UpdateEmployee implements OnInit{
     }
 
     onSubmit(){
-      this.employeeService.updateEmployee(this.id, this.employee);
+      this.employeeService.updateEmployee(this.id, this.employee).subscribe(data =>{
+
+      })
+    }
+
+    goToEmployeeList(){
+      this.router.navigate(['/employees']);
     }
 }
