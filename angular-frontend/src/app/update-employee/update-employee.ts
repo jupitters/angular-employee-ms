@@ -26,4 +26,8 @@ export class UpdateEmployee implements OnInit{
         this.employee = data;
       }, error => console.log(error));
     }
+
+    onSubmit(){
+      this.employeeService.updateEmployee(this.id, this.employee);
+    }
 }
