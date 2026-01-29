@@ -36,6 +36,10 @@ public class EmployeeController {
         Employee updatedEmployee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found!"));
         updatedEmployee.setFirstName(employee.getFirstName());
         updatedEmployee.setLastName(employee.getLastName());
+        updatedEmployee.setEmail(employee.getEmail());
+        updatedEmployee.setJobTitle(employee.getJobTitle());
 
+        Employee response = employeeRepository.save(updatedEmployee);
+        return ResponseEntity.ok(response);
     }
 }
