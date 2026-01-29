@@ -27,7 +27,11 @@ export class EmployeeList implements OnInit{
     })
   }
 
-  private updateEmployee(id: number){
+  updateEmployee(id: number){
     this.router.navigate(['update-employee', id]);
+  }
+
+  deleteEmployee(id: number){
+
   }
 }
