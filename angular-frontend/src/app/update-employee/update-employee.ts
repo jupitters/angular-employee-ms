@@ -14,11 +14,15 @@ import {ActivateRoute} from '@angular/router';
   styleUrl: './update-employee.css',
 })
 export class UpdateEmployee {
+    id: number;
     employee: Employee = new Employee();
     constructor(private employeeService: EmployeeService, private route: ActivateRoute) {
     }
 
     ngOnInit(): void{
-      this.employeeService.getEmployeeById()
+      this.id = this.route.snapshot.params['id'];
+      this.employeeService.getEmployeeById(this.id).subscribe(data => {
+        this.employee = data;
+      }, error => console.log(error));
     }
 }
