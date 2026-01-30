@@ -12,7 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class EmployeeDetails implements OnInit{
 
   id: number;
-  employee: Employee | undefined;
+  employee: Employee;
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService){}
 
   ngOnInit():void{
